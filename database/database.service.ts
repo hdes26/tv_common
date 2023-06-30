@@ -1,8 +1,6 @@
 import { Logger } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import * as entities from '../database/core/entities';
-const entitiesLists = Object.values(entities);
 
 
 export const databasePostgres = TypeOrmModule.forRootAsync({
@@ -17,8 +15,7 @@ export const databasePostgres = TypeOrmModule.forRootAsync({
       password: configService.get<string>('PGPASSWORD'),
       database: configService.get<string>('PGDATABASE'),
       logging: false,
-      entities: entitiesLists,
-      migrations: ["migrations/*.{js,ts}"],
+      migrations:["migrations/*.{js,ts}"],
       synchronize: false,
       then: Logger.debug(
         `postgres host:${configService.get<string>('PGHOST')}`,
