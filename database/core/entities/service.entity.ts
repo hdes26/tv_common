@@ -9,8 +9,14 @@ export class Service extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
-    name: string;
+    @Column({ length: 50 })
+    direction: string;
+
+    @Column({ length: 100 })
+    description: string;
+
+    @Column({ type: "date" })
+    date_to_attend: Date;
 
     @ManyToOne(() => Client, (client) => client.services)
     client: Client;
