@@ -4,6 +4,7 @@ import { RoleNameEnum } from '../enums';
 import { Client } from './client.entity';
 import { Technician } from './technician.entity';
 
+
 @Entity()
 export class User extends BaseEntity {
 

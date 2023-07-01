@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column, OneToMany } from "typeorm"
 import { BaseEntity } from "./shared/base.entity"
-import { User } from "./user.entity"
+import { Service } from "./service.entity";
+import { User } from "./user.entity";
 
 @Entity()
 export class Client extends BaseEntity {
@@ -11,4 +12,7 @@ export class Client extends BaseEntity {
     @OneToOne(() => User, (user) => user.client)
     @JoinColumn()
     user: User;
+
+    @OneToMany(() => Service, (services) => services.client)
+    services: Service[];
 }

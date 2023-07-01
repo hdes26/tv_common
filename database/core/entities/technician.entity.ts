@@ -1,7 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, OneToOne, JoinColumn, Column, OneToMany } from "typeorm"
 import { BaseEntity } from "./shared/base.entity"
-import { User } from "./user.entity"
 import { TechnicianStatusEnum } from "../enums";
+import { User } from "./user.entity";
+import { Service } from "./service.entity";
 
 @Entity()
 export class Technician extends BaseEntity {
@@ -15,4 +16,7 @@ export class Technician extends BaseEntity {
     @OneToOne(() => User, (user) => user.technician)
     @JoinColumn()
     user: User;
+
+    @OneToMany(() => Service, (services) => services.technician)
+    services: Service[];
 }
