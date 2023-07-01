@@ -10,7 +10,7 @@ export class Technician extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ type: 'enum', enum: TechnicianStatusEnum })
+    @Column({ type: 'enum', enum: TechnicianStatusEnum, default: TechnicianStatusEnum.AVAILABLE })
     status: TechnicianStatusEnum;
 
     @OneToOne(() => User, (user) => user.technician)
