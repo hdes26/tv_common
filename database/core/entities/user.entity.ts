@@ -1,6 +1,7 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { BaseEntity } from './shared/base.entity';
 import { RoleNameEnum } from '../enums';
+import { Client } from './client.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -20,6 +21,9 @@ export class User extends BaseEntity {
 
   @Column({ type: 'enum', enum: RoleNameEnum })
   role: string;
+
+  @OneToOne(() => Client, (client) => client.user)
+  client: Client;
 
 
 }
