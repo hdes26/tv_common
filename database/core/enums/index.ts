@@ -1,2 +1,2 @@
 export * from './role.enum';
-export * from './client.enum';
+export * from './technician.enum';

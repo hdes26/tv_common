@@ -2,6 +2,7 @@ import { Column, Entity, Index, OneToOne, PrimaryGeneratedColumn } from 'typeorm
 import { BaseEntity } from './shared/base.entity';
 import { RoleNameEnum } from '../enums';
 import { Client } from './client.entity';
+import { Technician } from './technician.entity';
 
 @Entity()
 export class User extends BaseEntity {
@@ -24,6 +25,9 @@ export class User extends BaseEntity {
 
   @OneToOne(() => Client, (client) => client.user)
   client: Client;
+
+  @OneToOne(() => Technician, (technician) => technician.user)
+  technician: Technician;
 
 
 }

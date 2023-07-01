@@ -1,4 +1,4 @@
-export enum ClientStatusEnum {
+export enum TechnicianStatusEnum {
   AVAILABLE = 'Available',
   BUSY = 'Busy'
 }
