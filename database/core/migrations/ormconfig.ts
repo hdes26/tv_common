@@ -1,11 +1,12 @@
 import { DataSource } from "typeorm";
 
+
 export const connectionSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
   username: 'postgres',
-  password: 'test123',
+  password: 'vo5uB9viNm8LV27qVz4S',
   database: 'postgres',
   logging: false,
   synchronize: false,
