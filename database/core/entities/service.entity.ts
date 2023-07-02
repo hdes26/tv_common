@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from "typeorm"
 import { BaseEntity } from "./shared/base.entity"
 import { Client } from "./client.entity";
 import { Technician } from "./technician.entity";
+import { ServiceStatusEnum } from "../enums";
 
 @Entity()
 export class Service extends BaseEntity {
@@ -14,6 +15,9 @@ export class Service extends BaseEntity {
 
     @Column({ length: 100 })
     description: string;
+
+    @Column({ type: 'enum', enum: ServiceStatusEnum, default: ServiceStatusEnum.READY })
+    status: ServiceStatusEnum
 
     @Column({ type: "date" })
     date_to_attend: Date;
