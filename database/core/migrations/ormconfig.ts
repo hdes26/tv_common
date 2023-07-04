@@ -3,7 +3,7 @@ import { DataSource } from "typeorm";
 
 export const connectionSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: 'imaginamosdb.postgres',
   port: 5432,
   username: 'postgres',
   password: 'vo5uB9viNm8LV27qVz4S',
