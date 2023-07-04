@@ -3,9 +3,10 @@ import { Reflector } from '@nestjs/core';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(private reflector: Reflector) {}
+  constructor(private reflector: Reflector) { }
 
   canActivate(context: ExecutionContext): boolean {
+
     const requiredRoles = this.reflector.get<string[]>(
       'roles',
       context.getHandler(),
@@ -17,7 +18,7 @@ export class RolesGuard implements CanActivate {
     // console.log(`user`, user);
     // console.log(`requiredRoles`, requiredRoles);
     return requiredRoles.some((role_name) =>
-      user?.role?.name?.includes(role_name),
+      user?.roles?.includes(role_name),
     );
   }
 }
